@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState, useEffect } from 'react';
+import Overview from './Overview';
+import ProductDetails from './ProductDetails';
+import Cart from './Cart';
 
-function App() {
+const App = () => {
+  const [cartItems, setCartItems] = useState([]);
+  const [currentView, setCurrentView] = useState('overview');
+
+  // Example of a function to handle navigation
+  const navigateTo = (view) => {
+    setCurrentView(view);
+  };
+
+  // Example of how you might handle navigation based on URL
+  useEffect(() => {
+    const path = window.location.pathname.toLowerCase();
+    if (path.startsWith('/product')) {
+      setCurrentView('product-details');
+    } else if (path === '/cart') {
+      setCurrentView('cart');
+    } else {
+      setCurrentView('overview');
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {currentView === 'overview' && <Overview navigateTo={navigateTo} />}
+      {currentView === 'product-details' && <ProductDetails navigateTo={navigateTo}/>}
+      {currentView === 'cart' && <Cart cartItems={cartItems} />}
     </div>
   );
-}
+};
 
 export default App;
