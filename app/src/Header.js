@@ -1,5 +1,6 @@
-// Header.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Header = ({ navigateTo }) => {
   return (
@@ -8,7 +9,6 @@ const Header = ({ navigateTo }) => {
       <div>
         <button onClick={() => navigateTo('overview')}>Home</button>
         <button onClick={() => navigateTo('cart')}>View Cart</button>
-        <button onClick={() => navigateTo('product-details')}>product details</button>
       </div>
     </div>
   );

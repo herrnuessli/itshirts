@@ -29,7 +29,7 @@ const App = () => {
     <div>
       {currentView === 'overview' && <Overview navigateTo={navigateTo} />}
       {currentView === 'product-details' && <ProductDetails navigateTo={navigateTo}/>}
-      {currentView === 'cart' && <Cart cartItems={cartItems} />}
+      {currentView === 'cart' && <Cart cartItems={cartItems} navigateTo={navigateTo} />}
     </div>
   );
 };

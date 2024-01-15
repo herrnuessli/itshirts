@@ -1,4 +1,3 @@
-// Overview.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
@@ -16,7 +15,7 @@ const Overview = ({ navigateTo }) => {
 
   return (
     <div>
-      <Header />
+      <Header navigateTo={navigateTo} />
       <h2>Product Overview</h2>
       <ul>
         {products.map(product => (
@@ -25,7 +24,6 @@ const Overview = ({ navigateTo }) => {
           </li>
         ))}
       </ul>
-      <button onClick={() => navigateTo('cart')}>View Cart</button>
     </div>
   );
 };
