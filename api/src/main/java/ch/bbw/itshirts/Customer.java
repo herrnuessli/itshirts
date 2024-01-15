@@ -8,9 +8,9 @@ import jakarta.persistence.Id;
 @Entity
 public class Customer {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+        @Id
+        @GeneratedValue(strategy=GenerationType.AUTO)
+        private Long id;
     private String firstName;
     private String lastName;
 
